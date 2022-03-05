@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Sorting - AlgoViz</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/sorting.css" />
+    <script src="scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="scripts/chart-3.6.0.js" defer></script>
+    <script src="scripts/dataBarsUtility.js" defer></script>
+    <script src="scripts/sorting.js" defer></script>
+    <script>
+      if (typeof Proxy === 'undefined')
+        alert('The browser is not supported, please use chrome or firefox');
+    </script>
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="header_logo">
+        <a class="title_name" href="index.html">
+          <span>AlgoViz</span>
+        </a>
+      </div>
+      <div class="header_buttons_container">
+        <a class="headerButton" href="about.html">
+          <span>About</span>
+        </a>
+        <a class="headerButton" href="team.html">
+          <span>Team</span>
+        </a>
+        <!-- <a class="headerButton" href="index.html">
+        <span>Github</span>
+      </a> -->
+      </div>
+    </header>
+
+    <div class="algo_container">
+      <div class="algo_type">
+       <h2>Sorting</h2>
+      </div>
+      <div class="algo_visual">
+        <div id="sort-view">
+          <ul id="sortingBarContainer"></ul>
+        </div>
+      </div>
+      <div class="option">
+        <div class="option_row" data-dropup-auto="false">
+          <button id="start">Start</button>
+          <button id="stop">Stop</button>
+          <select id="algorithm">
+            <option value="bubble" selected>Bubble</option>
+            <option value="selection">Selection</option>
+            <option value="insert">Insert</option>
+            <option value="quick">Quick</option>
+            <option value="merge">Merge</option>
+            <option value="heap">Heap</option>
+          </select>
+          <button id="shuffle">Random</button>
+          <div class="input-box">
+            <label class="key" for="amount">Amount</label>
+            <input autocomplete="off" id="amount" class="value" value="30" />
+          </div>
+          <div class="input-box">
+            <label class="key" for="speed">Delay</label>
+            <input autocomplete="off" id="speed" class="value" value="200" />
+          </div>
+          <button id="comparsionGraph">Compare</button>
+        </div>
+      </div>
+      <div class="modal_popup">
+        <button id="closeButton" onclick="$('.modal_popup').removeClass('show')">&Cross;</button>
+        <div class="modalContainer">
+          <div class="graph_container">
+            <canvas id="graphRegion"></canvas>
+          </div>
+          <div class="compare_buttton_row">
+            <!-- <input autocomplete="off" id="customInput" placeholder="Enter comma seperated values"></input> -->
+            <button data-case="worst" onclick="switchActiveSortingCase(this)">Worst Case</button>
+            <button id="active" data-case="average" onclick="switchActiveSortingCase(this)">Average Case</button>
+            <button data-case="best" onclick="switchActiveSortingCase(this)">Best Case</button>
+            <!-- <button id="compareButton" >Compare</button> -->
+          </div>
+          <div class="compare_range_container">
+            <!-- range input between 1000 to 10000-->
+            <label for="rangeInput">Number of Elements</label>
+            <input autocomplete="off" id="rangeInput" type="range" min="1" max="100" value="50" oninput="updateNumberOfElements(this.value)"/>
+            <label for="rangeInput" id="numberOfElements">50</label>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+.mainBody{
+    display: grid;
+    place-items: center;
+    height: 70vh;  
+}
+.teamContainer{
+    width: 90%;
+    margin: 0 auto;
+    padding: 0;
+    display: grid;
+    place-items: center;
+}
+.memberContainer{
+    width: 100%;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+.singleMemberContainer{
+    min-width: 80px;
+    max-width: 150px;
+    display: flex;
+    justify-content: center;
+    flex-flow: column nowrap;
+    align-items: center;
+    margin: 3%;
+}
+.imageContainer{
+    width: 100%;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    user-select: none;
+}
+.imageContainer img{
+    width: 70%;
+}
+.singleMemberContainer:nth-child(1) .imageContainer{
+    background-color: #e43838;
+
+}
+.singleMemberContainer:nth-child(2) .imageContainer{
+    background-color: #46d309;
+
+}
+.singleMemberContainer:nth-child(3) .imageContainer{
+    background-color: #004fd6;
+
+}
+.singleMemberContainer:nth-child(4) .imageContainer{
+    background-color: #ec5f00;
+
+}
+.singleMemberContainer span{
+    text-align: center;
+    font: 600 18px/30px Poppins;
+    margin-top: 10px;
+}

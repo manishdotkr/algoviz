@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>AlgoViz</title>
+    <link rel="stylesheet" href="styles/index.css" />
+    <link rel="stylesheet" href="styles/bootstrap.min.css" />
+    <script src="scripts/jquery-3.6.0.min.js" defer></script>
+    <script src="scripts/popper.min.js" defer></script>
+    <script src="scripts/bootstrap.min.js" defer></script>
+    <script src="scripts/index.js" defer></script>
+  </head>
+  <body>
+    <div class="night-mode-toggle">
+      <button class="night-toggle-button" id="nightToggle" onclick="toggleNightMode()"></button>
+    </div>
+    <header class="header">
+      <div class="header_logo">
+        <a class="title_name" href="index.html">
+          <span>AlgoViz</span>
+        </a>
+      </div>
+      <div class="header_buttons_container">
+        <a class="headerButton" href="about.html">
+          <span>About</span>
+        </a>
+        <a class="headerButton" href="team.html">
+          <span>Team</span>
+        </a>
+        <!-- <a class="headerButton" href="index.html">
+          <span>Github</span>
+        </a> -->
+      </div>
+    </header>
+    <main class="main">
+      <!-- <div class="search-container">
+        <input type="text" placeholder="Search.." autocomplete="off" />
+      </div> -->
+      <div class="categories-container">
+        <a href="sorting.html">
+          <div class="category_wrapper">
+            <div class="category_box bg-purple">
+              <img src="images/sorting-algo-icon.svg" alt="" />
+            </div>
+            <span class="algo-type">Sorting</span>
+          </div>
+        </a>
+        <a href="searching.html">
+          <div class="category_wrapper">
+            <div class="category_box bg-red">
+              <img src="images/search-algo-icon.svg" alt="" />
+            </div>
+            <span class="algo-type">Searching</span>
+          </div>
+        </a>
+        <div class="category_wrapper d-none">
+          <div class="category_box bg-green">
+            <img src="images/greedy-algo-icon.svg" alt="" />
+          </div>
+          <span class="algo-type">DP</span>
+        </div>
+        <div class="category_wrapper d-none">
+          <div class="category_box bg-blue">
+            <img src="images/dp-algo-icon.svg" alt="" />
+          </div>
+          <span class="algo-type">Greedy</span>
+        </div>
+      </div>
+    </main>
+  </body>
+  <script>
+    function toggleNightMode() {
+      $('.night-mode-toggle').animate(
+        {
+          bottom: '100%',
+          opacity: '0',
+          visibility: 'hidden',
+        },
+        {
+          duration: 500,
+          easing: 'linear',
+        },
+      );
+      setTimeout(function () {
+        $('.night-mode-toggle').animate(
+          {
+            bottom: '0px',
+          },
+          {
+            duration: 0,
+          },
+        );
+      }, 500);
+      setTimeout(function () {
+        $('.night-toggle-button').toggleClass('night-on');
+        $('.night-mode-toggle').animate(
+          {
+            opacity: '1',
+            bottom: '14px',
+            visibility: 'visible',
+          },
+          {
+            duration: 400,
+            easing: 'linear',
+          },
+        );
+      }, 1000);
+      if ($('.night-toggle-button').hasClass('night-on')) $('body').css('background-color', '#fff');
+      else $('body').css('background-color', '#444');
+    }
+  </script>
+</html>

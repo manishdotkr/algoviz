@@ -1,0 +1,345 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 16px;
+    height: 100%;
+}
+
+body {
+    background: #ffffff;
+    height: 100%;
+}
+
+.algo_container{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.searchResult{
+    width: 100%;
+    height: 36px;
+    background: #9c225d;
+    border-radius: 0 0 6px 6px;
+    color: white;
+    text-align: center;
+    padding: 6px 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+.bold_text{
+    font-weight: bold;
+}
+.algo_visual {
+    width: 90%;
+    max-width: 940px;
+    border-radius: 10px;
+    background: #fff;
+    margin: 30px 0;
+    box-shadow: 0 0 7px 2px rgb(0 0 0 / 24%);
+}
+
+.modal_popup{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 12px;
+    width: 80%;
+    height: 84%;
+    background: rgb(255, 255, 255);
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 7px 2px rgb(0 0 0 / 24%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease-in-out;
+}
+.modal_popup.show{
+    opacity: 1;
+    visibility: visible;
+    transition: all 0.3s ease-in-out;
+}
+#closeButton{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 40px;
+    height: 40px;
+    border: 1px solid black;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: x-large;
+}
+#search-view {
+    /* overflow: hidden; */
+    height: 50vh;
+}
+
+#search-view ul {
+    position: relative;
+    height: 100%;
+    list-style: none;
+}
+
+#search-view li {
+    position: absolute;
+    bottom: 0;
+    display: inline-block;
+    min-width: 1px;
+    transition: all 0 ease;
+    border-radius: 100px 100px 0 0;
+    background-color: #666;
+}
+#search-view li .list_data{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    --font-unit: 1px;
+    font-size: var(--font-unit);
+    font-weight: bold;
+    text-shadow: 0px 0px 8px #292929af;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    user-select: none;
+    transition: bottom 0.2s linear;
+}
+.algo_type{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 16px;
+}
+#search-view li:hover,
+#search-view li:active {
+    background-color: rgb(255, 187, 0) !important;
+}
+#search-view li:hover span,
+#search-view li:active span{
+    font-size: 1rem;
+    z-index: 9999;
+    padding: 3px;
+    transition: all 0.2s linear;
+    border-radius: 5px;
+    background-color: #fa1673;
+    box-shadow: 0 0 5px 1px #11111173;
+    width: auto;
+    height: max-content;
+}
+.highlightBar {
+    background-color: #007e49 !important;
+}
+
+.option {
+    padding-bottom: 20px;
+    background: inherit;
+}
+
+.option_row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.option_row>* {
+    height: 46px;
+    margin: 10px 8px;
+    font-family: inherit;
+    letter-spacing: 1px;
+    color: #ff0f83;
+    border: 1px solid #ff0f83;
+}
+
+select {
+    display: inline-block;
+    width: 100px;
+    font-size: inherit;
+    cursor: pointer;
+    vertical-align: middle;
+    border-radius: 6px;
+    outline: 0;
+    text-align: center;
+    }
+
+.input-box {
+    display: inline-block;
+    height: 46px;
+    font-size: 0;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 6px;
+}
+
+.input-box>* {
+    margin: 0;
+    font-size: 0;
+    border: 0;
+}
+
+.input-box .key {
+    display: inline-block;
+    width: 86px;
+    height: 50px;
+    font-size: 1rem;
+    cursor: pointer;
+    text-align: center;
+    vertical-align: baseline;
+}
+
+.input-box .value {
+    width: 30px;
+    width: 50px;
+    height: 100%;
+    font-size: 1rem;
+    text-align: center;
+    vertical-align: baseline;
+    color: inherit;
+    border-left: 1px solid #ff0f83;
+    border-radius: 6px;
+    outline: 0;
+}
+
+button, #searchingInput{
+    font-size: 1rem;
+    cursor: pointer;
+    transition: .4s ease;
+    vertical-align: middle;
+    letter-spacing: 1px;
+    border-radius: 6px;
+    outline: 0;
+    background: inherit;
+    text-align: center;
+}
+
+#searchingInput{
+    width: 100px;
+}
+#searchingInput::placeholder{
+    color: #ff73b7c2;
+}
+button:hover {
+    color: #fff;
+    background-color: #ff0f83;
+}
+
+.disable {
+    opacity: 0.5;
+}
+
+.disable:hover {
+    color: inherit;
+    background: inherit;
+}
+
+@media screen and (max-width: 576px) {
+    body {
+        padding: 4px;
+    }
+
+    .algo_visual {
+        position: static;
+        width: 100%;
+        /* border-radius: 0; */
+    }
+    .option_row{
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .option_row {
+        text-align: justify;
+        justify-content: space-between;
+    }
+
+    select {
+        width: max-content;
+        font-size: 16px;
+        border-radius: 6px;
+        outline: 0;
+        background: inherit;
+    }
+}
+
+.graph_container{
+    width:90%;
+    max-width:580px;
+    margin-bottom: 10px;
+    border: 2px solid #111;
+}
+
+.option button{
+    padding: 6px 8px;
+}
+.modalContainer{
+    width: 80%;
+    height: 90%;
+    justify-content: space-around;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.compare_buttton_row{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 80%;
+    height: 50px;
+}
+
+#customInput {
+    min-width: 60%;
+    padding: 8px 8px;
+    max-height: 6vmin;
+    box-sizing: border-box;
+    border-radius: 6px;
+    color: #33333399;
+    border: 2px solid #33333399;
+    text-align: center;
+    letter-spacing: 1px;
+    font-size: medium;
+  }
+  #customInput:focus {
+    outline: none;
+    color: #fa1673;
+    background-color: #fff;
+    border-color: #ff0f83;
+  }
+.compare_buttton_row button{
+    border: none;
+    border:1px solid #ff0f83;
+    color: #ff0f83;
+    text-align: center;
+    cursor: pointer;
+    padding: 4px;
+}
+.compare_buttton_row button:hover{
+    background-color: #ff0f83;
+    color: #fff;
+}
+.compare_range_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    height: 50px;
+}
+#active{
+    background-color: #bb005a;
+    color: #fff;
+}
+#rangeInput{
+    width: 150px;
+    margin: 0 10px;
+}
